@@ -1,5 +1,5 @@
 DROP TABLE IF EXISTS Review;
-DROP TABLE IF EXISTS Users;
+DROP TABLE IF EXISTS User;
 DROP TABLE IF EXISTS Device;
 DROP TABLE IF EXISTS Android;
 DROP TABLE IF EXISTS SystemOnChip;
@@ -36,7 +36,7 @@ CREATE TABLE `Device`(
   PRIMARY KEY(id)
 );
 
-CREATE TABLE `Users`(
+CREATE TABLE `User`(
   id INT NOT NULL,
   device_id INT,
   username VARCHAR(20) NOT NULL,
@@ -47,7 +47,7 @@ CREATE TABLE `Users`(
 );
 
 CREATE TABLE `Review`(
-  id INT NOT NULL,
+  id INT NOT NULL AUTO_INCREMENT,
   user_id INT NOT NULL,
   device_id INT NOT NULL,
   design INT NOT NULL,
@@ -56,7 +56,7 @@ CREATE TABLE `Review`(
   camera INT NOT NULL,
   battery INT NOT NULL,
   software INT NOT NULL,
-  final DECIMAL(1,1) NOT NULL,
+  final DECIMAL(2,1) NOT NULL,
   `comment` TEXT,
   PRIMARY KEY(id)
 );
@@ -89,9 +89,9 @@ ALTER TABLE `Review`
 
 ALTER TABLE `Review`
   ADD CONSTRAINT `Utilisateur_Review`
-    FOREIGN KEY (user_id) REFERENCES `Users` (id);
+    FOREIGN KEY (user_id) REFERENCES `User` (id);
 
-ALTER TABLE `Users`
+ALTER TABLE `User`
   ADD CONSTRAINT `Device_User` FOREIGN KEY (device_id) REFERENCES `Device` (id);
 
 ALTER TABLE `Device`
