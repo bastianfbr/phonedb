@@ -39,7 +39,7 @@ SET id = @id, brand = @brand, name = @name, announced_date = STR_TO_DATE(@announ
 price = @price, status = @status, height = @height, width = @width, weight = @weight, 
 thickness = @thickness, back = @back, display_tech = @display_tech, display_size = @display_size, 
 ratio = @ratio, resolution = @resolution, camera_main = @camera_main, camera_number = @camera_number, 
-ultrawide = IF(@ultrawide = '1', TRUE, FALSE), telephoto = IF(@telephoto = '1', TRUE, FALSE), 
+ultrawide = IF(UPPER(@ultrawide) = 'TRUE', TRUE, FALSE), telephoto = IF(UPPER(@telephoto) = 'TRUE', TRUE, FALSE), 
 selfie = @selfie, battery_capacity = @battery_capacity, charging = @charging, 
-wireless = IF(@wireless = '1', TRUE, FALSE), reverse = IF(@reverse = '1', TRUE, FALSE), 
+wireless = IF(UPPER(@wireless) = 'TRUE', TRUE, FALSE), reverse = IF(UPPER(@reverse) = 'TRUE', TRUE, FALSE), 
 memory_id = @memory_id, soc_id = @soc_id, android_id = @android_id; 
