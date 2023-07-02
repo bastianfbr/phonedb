@@ -1,3 +1,7 @@
+DROP PROCEDURE IF EXISTS CreateDeviceSpecification;
+DROP PROCEDURE IF EXISTS CreateUser;
+DROP PROCEDURE IF EXISTS CreateReview;
+
 DELIMITER //
 
 CREATE PROCEDURE CreateDeviceSpecification(
@@ -83,6 +87,10 @@ DELIMITER ;
 
 DELIMITER //
 
+DELIMITER //
+
+DELIMITER //
+
 CREATE PROCEDURE CreateReview(
   IN pUsername VARCHAR(20),
   IN pDeviceName VARCHAR(50),
@@ -93,20 +101,22 @@ CREATE PROCEDURE CreateReview(
   IN pBattery INT,
   IN pSoftware INT,
   IN pFinal DECIMAL(2,1),
-  IN pComment TEXT
+  IN pComment TEXT,
+  IN pDeviceId INT
 )
 BEGIN
-  DECLARE userId, deviceId INT;
+  DECLARE userId INT;
 
   -- Retrieve the User ID
-  SELECT id INTO userId FROM User WHERE username = pUsername;
-
-  -- Retrieve the Device ID
-  SELECT id INTO deviceId FROM Device WHERE name = pDeviceName;
+  SELECT id INTO userId FROM User WHERE username = pUsername LIMIT 1;
 
   -- Insert the review
   INSERT INTO Review (user_id, device_id, design, display, performance, camera, battery, software, final, comment)
-  VALUES (userId, deviceId, pDesign, pDisplay, pPerformance, pCamera, pBattery, pSoftware, pFinal, pComment);
+  VALUES (userId, pDeviceId, pDesign, pDisplay, pPerformance, pCamera, pBattery, pSoftware, pFinal, pComment);
 END //
 
 DELIMITER ;
+
+CALL CreateDeviceSpecification(   'Sample Brand',   'Sample Device',   '2023-07-01',   199.99,   'AVAILABLE',   156.2,   74.5,   165.4,   8.9,   'GLASS',   'OLED',   6.4,   '20:9',   '1080x2400',   64.0,   4,   TRUE,   TRUE,   25.0,   5000,   25,   TRUE,   TRUE,   6,   128,   TRUE,   'Android 12',   3,   12,   'Sample SoC',   5,   @deviceId );
+CALL CreateUser('Benoit', 'ben@gmail.com', 'password123', 'USER');
+CALL CreateReview('JohnDoe', 'Sample Device', 5, 5, 5, 4, 4, 4, 4.5, 'This device is amazing!', @deviceId);
