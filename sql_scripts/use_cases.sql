@@ -8,14 +8,17 @@ WHERE price < 250 AND display_tech = 'OLED';
 SELECT * FROM Device
 WHERE price < 500 AND telephoto = TRUE;
 
--- José se connecte sur son compte avec son pseudo “JoelLeGolem” et son mot de passe “JESuisUnGol€m” pour mettre Samsung en marque préférée et envoie une note pour le Samsung Galaxy S22 Ultra avec un petit commentaire.
+-- José se crée un compte avec le pseudo "JoséLeGolem", se connecte et met le Samsung Galaxy S22 Ultra en smartphone puis envoie une note avec un petit commentaire.
+
+INSERT INTO User (username, mail, password, role)
+VALUES ('JoséLeGolem', 'golemiquejoel@gmail.com' , 'JESuisUnGol€m', 'USER');
 
 UPDATE User
 SET device_id = ( SELECT id FROM Device WHERE name = 'Samsung Galaxy S22 Ultra')
-WHERE username = 'JoelLeGolem' AND password = 'JESuisUnGol€m';
+WHERE username = 'JoséLeGolem';
 
 INSERT INTO Review (user_id, device_id, design, display, performance, camera, battery, software, final, comment)
-VALUES (( SELECT id FROM User WHERE username = "JoelLeGolem"), ( SELECT id FROM Device WHERE name = 'Samsung Galaxy S22 Ultra'), <design_rating>, <display_rating>, <performance_rating>, <camera_rating>, <battery_rating>, <software_rating>, <final_rating>, 'Petit commentaire.');
+VALUES (( SELECT id FROM User WHERE username = "JoséLeGolem"), ( SELECT id FROM Device WHERE name = 'Samsung Galaxy S22 Ultra'), 5, 5, 5, 5, 4, 5, 4.8, 'Petit commentaire.');
 
 -- Derya regarde les différences avec le Google Pixel 7 et le Pixel 7a.
 
