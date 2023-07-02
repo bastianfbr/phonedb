@@ -24,3 +24,11 @@ VALUES (( SELECT id FROM User WHERE username = "JoséLeGolem"), ( SELECT id FROM
 
 SELECT * FROM Device
 WHERE name LIKE 'Google Pixel 7%' OR name LIKE 'Google Pixel 7a%';
+
+-- François regarde la liste des smartphones avec la fiche technique complète.
+
+SELECT d.name, d.price, d.status, d.display_size, d.camera_main AS 'Main Sensor', d.battery_capacity AS 'Battery', d.charging, d.wireless, d.reverse, m.ram, m.rom, m.expandable, s.name AS 'SoC', s.nm, a.name AS 'Android Version', a.updates, a.security_updates
+FROM Device AS d
+JOIN Memory AS m ON d.memory_id = m.id
+JOIN SystemOnChip AS s ON d.soc_id = s.id
+JOIN Android AS a ON d.android_id = a.id;
