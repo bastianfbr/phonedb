@@ -8,6 +8,8 @@
 INSERT INTO Android (id, name, updates, security_updates) VALUES (1, 'Android 13', 3, 5);
 /* Asus Zenfone 10  2++4 */
 INSERT INTO Android (id, name, updates, security_updates) VALUES (2, 'Android 13', 2, 4);
+/* Sony Xperia 10 V 2+3 */
+INSERT INTO Android (id, name, updates, security_updates) VALUES (3, 'Android 13', 2, 3);
 
 -- Insertion des données dans la table SystemOnChip
 INSERT INTO SystemOnChip (id, name, nm) VALUES (1, 'Google Tensor G2', 5);
