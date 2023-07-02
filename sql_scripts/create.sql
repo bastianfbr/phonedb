@@ -21,7 +21,7 @@ CREATE TABLE `Device`(
   display_size DECIMAL(3,2) NOT NULL,
   ratio VARCHAR(5) NOT NULL,
   resolution VARCHAR(9) NOT NULL,
-  camera_main DECIMAL(4,2) NOT NULL,
+  camera_main DECIMAL(5,2) NOT NULL,
   camera_number INT NOT NULL,
   ultrawide BOOLEAN NOT NULL,
   telephoto BOOLEAN NOT NULL,
