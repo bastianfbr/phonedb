@@ -30,4 +30,15 @@ INSERT INTO User (id, username, mail, password, role) VALUES (1, 'bastianfbr', '
 LOAD DATA LOCAL INFILE '../files/device.csv'
 INTO TABLE Device
 FIELDS TERMINATED BY ';'
-IGNORE 1 LINES;
+IGNORE 1 LINES
+(@id, @brand, @name, @announced_date, @price, @status, @height, @width, 
+@weight, @thickness, @back, @display_tech, @display_size, @ratio, @resolution, 
+@camera_main, @camera_number, @ultrawide, @telephoto, @selfie, @battery_capacity, 
+@charging, @wireless, @reverse, @memory_id, @soc_id, @android_id)
+SET id = @id, brand = @brand, name = @name, announced_date = STR_TO_DATE(@announced_date, '%d/%m/%Y'), 
+price = @price, status = @status, height = @height, width = @width, weight = @weight, 
+thickness = @thickness, back = @back, display_tech = @display_tech, display_size = @display_size, 
+ratio = @ratio, resolution = @resolution, camera_main = @camera_main, camera_number = @camera_number, 
+ultrawide = @ultrawide, telephoto = @telephoto, selfie = @selfie, battery_capacity = @battery_capacity, 
+charging = @charging, wireless = @wireless, reverse = @reverse, memory_id = @memory_id, 
+soc_id = @soc_id, android_id = @android_id; 

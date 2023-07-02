@@ -10,7 +10,7 @@ CREATE TABLE `Device`(
   brand VARCHAR(30) NOT NULL,
   `name` VARCHAR(50) NOT NULL,
   announced_date DATE,
-  price DECIMAL(4,2),
+  price DECIMAL(6,2),
   `status` ENUM("AVAILABLE", "COMING", "RUMOR") NOT NULL,
   height DECIMAL(4,1) NOT NULL,
   width DECIMAL(3,1) NOT NULL,
