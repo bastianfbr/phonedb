@@ -6,7 +6,7 @@ DROP TABLE IF EXISTS SystemOnChip;
 DROP TABLE IF EXISTS Memory;
 
 CREATE TABLE `Device`(
-  id INT NOT NULL,
+  id INT NOT NULL AUTO_INCREMENT,
   brand VARCHAR(30) NOT NULL,
   `name` VARCHAR(50) NOT NULL,
   announced_date DATE,
@@ -37,7 +37,7 @@ CREATE TABLE `Device`(
 );
 
 CREATE TABLE `User`(
-  id INT NOT NULL,
+  id INT NOT NULL AUTO_INCREMENT,
   device_id INT,
   username VARCHAR(20) NOT NULL,
   mail VARCHAR(100) NOT NULL,
@@ -62,7 +62,7 @@ CREATE TABLE `Review`(
 );
 
 CREATE TABLE `Android`(
-  id INT NOT NULL,
+  id INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(20) NOT NULL,
   updates INT NOT NULL,
   security_updates INT NOT NULL,
@@ -70,14 +70,14 @@ CREATE TABLE `Android`(
 );
 
 CREATE TABLE `SystemOnChip`(
-  id INT NOT NULL,
+  id INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(50) NOT NULL,
   nm INT NOT NULL,
   PRIMARY KEY(id)
 );
 
 CREATE TABLE `Memory`(
-  id INT NOT NULL,
+  id INT NOT NULL AUTO_INCREMENT,
   ram INT NOT NULL,
   rom INT NOT NULL,
   expandable BOOLEAN NOT NULL,
