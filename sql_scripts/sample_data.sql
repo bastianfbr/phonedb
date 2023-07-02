@@ -10,12 +10,15 @@ INSERT INTO Android (id, name, updates, security_updates) VALUES (1, 'Android 13
 INSERT INTO Android (id, name, updates, security_updates) VALUES (2, 'Android 13', 2, 4);
 /* Sony Xperia 10 V 2+3 */
 INSERT INTO Android (id, name, updates, security_updates) VALUES (3, 'Android 13', 2, 3);
+/* Samsung Galaxy S22 Ultra 4+5 */
+INSERT INTO Android (id, name, updates, security_updates) VALUES (4, 'Android 12', 4, 5);
 
 -- Insertion des données dans la table SystemOnChip
 INSERT INTO SystemOnChip (id, name, nm) VALUES (1, 'Google Tensor G2', 5);
 INSERT INTO SystemOnChip (id, name, nm) VALUES (2, 'Qualcomm Snapdragon 8 Gen 2', 4);
 INSERT INTO SystemOnChip (id, name, nm) VALUES (3, 'Qualcomm Snapdragon 8+ Gen 1', 4);
 INSERT INTO SystemOnChip (id, name, nm) VALUES (4, 'Qualcomm Snapdragon 695 5G', 6);
+INSERT INTO SystemOnChip (id, name, nm) VALUES (5, 'Samsung Exynos 2200', 4);
 
 -- Insertion des données dans la table Memory
 
